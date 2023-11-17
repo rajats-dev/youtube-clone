@@ -11,7 +11,18 @@ export const youtubeSlice = createSlice({
     nextPageToken: null,
     recommendedVideo: [],
   },
-  reducers: {},
+  reducers: {
+    clearVideos(state) {
+      state.videos = [];
+      state.nextPageToken = null;
+    },
+    changeSearchTerm(state, action) {
+      state.searchTerm = action.payload;
+    },
+    clearSearch(state) {
+      state.searchResults = "";
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(getHomePageVideo.fulfilled, (state, action) => {
       if (action.payload && action.payload.parsedData) {
@@ -21,3 +32,5 @@ export const youtubeSlice = createSlice({
     });
   },
 });
+
+export const youtubeAction = youtubeSlice.actions;

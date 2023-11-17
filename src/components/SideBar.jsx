@@ -46,13 +46,13 @@ const SideBar = () => {
   ];
 
   return (
-    <div className="w-40 bg-[#212121] overflow-auto pb-8 h-screen">
+    <div className="w-60 bg-[#212121] overflow-auto pb-8 h-screen">
       <ul className="flex flex-col text-white pb-2 border-b-2 border-gray-700">
         {mainLinks.map(({ icon, name }) => (
           <li key={name} className="pl-6 py-2 hover:bg-zinc-700 rounded-xl">
             <a href="#" className="flex gap-5 items-center">
               {icon}
-              <span className="text-xs tracking-tight">{name}</span>
+              <span className="text-sm tracking-tight">{name}</span>
             </a>
           </li>
         ))}
@@ -62,7 +62,7 @@ const SideBar = () => {
           <li key={name} className="pl-6 py-2 hover:bg-zinc-700 rounded-xl">
             <a href="#" className="flex gap-5 items-center">
               {icon}
-              <span className="text-xs tracking-tight">{name}</span>
+              <span className="text-sm tracking-tight">{name}</span>
             </a>
           </li>
         ))}

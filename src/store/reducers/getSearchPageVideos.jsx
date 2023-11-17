@@ -4,7 +4,7 @@ import parseData from "../../utils/parseData";
 
 const API_KEY = import.meta.env.VITE_YOUTUBE_DATA_API_KEY;
 
-export const getHomePageVideo = createAsyncThunk(
+export const getSearchPageVideos = createAsyncThunk(
   "youtube/App/homePageVideo",
   async (isNext, { getState }) => {
     const {

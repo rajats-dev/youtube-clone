@@ -1,8 +1,6 @@
 import React from "react";
 
 const timeSince = (date) => {
-  console.log(date);
-
   const second = Math.floor((new Date().valueOf() - date.valueOf()) / 1000);
 
   let interval = second / 31536000;
