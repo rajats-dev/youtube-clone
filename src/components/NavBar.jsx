@@ -10,7 +10,6 @@ import { useAppDispatch, useAppSelector } from "../hooks/useApp";
 import { youtubeAction } from "../features/youtube/youtubeSlice";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import { getSearchPageVideos } from "../store/reducers/getSearchPageVideos";
-// import { CgProfile } from "react-icons/cg";
 
 const NavBar = () => {
   const location = useLocation();
@@ -20,6 +19,7 @@ const NavBar = () => {
 
   const handleSearch = () => {
     if (location.pathname !== "/search") history.replace("/search");
+    else if (searchTerm === "") null;
     else {
       dispatch(youtubeAction.clearVideos());
       dispatch(getSearchPageVideos(false));

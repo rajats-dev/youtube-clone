@@ -3,17 +3,22 @@ import NavBar from "../components/Navbar";
 import SideBar from "../components/SideBar";
 import Card from "../components/Card";
 import { useAppDispatch, useAppSelector } from "../hooks/useApp";
-import { getHomePageVideo } from "../store/reducers/getHomePageVideo";
+import { getSearchPageVideos } from "../store/reducers/getSearchPageVideos";
 import Spinner from "../components/Spinner";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { youtubeAction } from "../features/youtube/youtubeSlice";
 
-const Home = () => {
+const Search = () => {
+  //   const history = useHistory();
   const dispatch = useAppDispatch();
   const video = useAppSelector((state) => state.youtubeApp.videos);
+  //   const searchTerm = useAppSelector((state) => state.youtubeApp.searchTerm);
 
   useEffect(() => {
-    dispatch(getHomePageVideo(false));
-    console.log(video);
+    console.log("a");
+    dispatch(youtubeAction.clearVideos());
+    dispatch(getSearchPageVideos(false));
   }, [dispatch]);
 
   return (
@@ -26,7 +31,7 @@ const Home = () => {
         {video.length ? (
           <InfiniteScroll
             dataLength={video.length}
-            next={() => dispatch(getHomePageVideo(true))}
+            next={() => dispatch(getSearchPageVideos(true))}
             hasMore={video.length < 500}
             loader={<Spinner />}
             height={650}
@@ -38,11 +43,12 @@ const Home = () => {
             </div>
           </InfiniteScroll>
         ) : (
-          <Spinner />
+          //   <Spinner />
+          "a"
         )}
       </div>
     </div>
   );
 };
 
-export default Home;
+export default Search;

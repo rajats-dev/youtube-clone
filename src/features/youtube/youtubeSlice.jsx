@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getHomePageVideo } from "../../store/reducers/getHomePageVideo";
+import { getSearchPageVideos } from "../../store/reducers/getSearchPageVideos";
 
 export const youtubeSlice = createSlice({
   name: "youtubeApp",
@@ -25,6 +26,13 @@ export const youtubeSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(getHomePageVideo.fulfilled, (state, action) => {
+      if (action.payload && action.payload.parsedData) {
+        state.videos = action.payload.parsedData;
+        state.nextPageToken = action.payload.nextPageToken;
+      }
+    });
+
+    builder.addCase(getSearchPageVideos.fulfilled, (state, action) => {
       if (action.payload && action.payload.parsedData) {
         state.videos = action.payload.parsedData;
         state.nextPageToken = action.payload.nextPageToken;
