@@ -9,30 +9,30 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 const Home = () => {
   const dispatch = useAppDispatch();
-  const video = useAppSelector((state) => state.youtubeApp.videos);
+  const videos = useAppSelector((state) => state.youtubeApp.videos);
 
   useEffect(() => {
     dispatch(getHomePageVideo(false));
-    console.log(video);
   }, [dispatch]);
 
+  console.log(videos);
   return (
-    <div className="max-h-screen overflow-auto">
-      <div>
+    <div className="max-h-screen overflow-hidden">
+      <div style={{ height: "7.5vh" }}>
         <NavBar />
       </div>
-      <div className="flex">
+      <div className="flex" style={{ height: "92.5vh" }}>
         <SideBar />
-        {video.length ? (
+        {videos.length ? (
           <InfiniteScroll
-            dataLength={video.length}
+            dataLength={videos.length}
             next={() => dispatch(getHomePageVideo(true))}
-            hasMore={video.length < 500}
+            hasMore={videos.length < 500}
             loader={<Spinner />}
             height={650}
           >
-            <div className="grid gap-y-14 gap-x-8 grid-cols-4 p-8">
-              {video.map((item) => {
+            <div className="grid gap-y-14 gap-x-14 grid-cols-3 pt-8 pl-6">
+              {videos.map((item) => {
                 return <Card data={item} key={item.videoId} />;
               })}
             </div>

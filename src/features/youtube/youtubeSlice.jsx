@@ -2,16 +2,18 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getHomePageVideo } from "../../store/reducers/getHomePageVideo";
 import { getSearchPageVideos } from "../../store/reducers/getSearchPageVideos";
 
+const initialState = {
+  videos: [],
+  currentPlaying: null,
+  searchTerm: "",
+  searchResults: [],
+  nextPageToken: null,
+  recommendedVideo: [],
+};
+
 export const youtubeSlice = createSlice({
   name: "youtubeApp",
-  initialState: {
-    videos: [],
-    currentPlaying: null,
-    searchTerm: "",
-    searchResults: [],
-    nextPageToken: null,
-    recommendedVideo: [],
-  },
+  initialState,
   reducers: {
     clearVideos(state) {
       state.videos = [];
@@ -21,7 +23,7 @@ export const youtubeSlice = createSlice({
       state.searchTerm = action.payload;
     },
     clearSearch(state) {
-      state.searchResults = "";
+      state.searchTerm = "";
     },
   },
   extraReducers: (builder) => {

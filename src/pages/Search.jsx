@@ -43,8 +43,7 @@ const Search = () => {
             </div>
           </InfiniteScroll>
         ) : (
-          //   <Spinner />
-          "a"
+          <Spinner />
         )}
       </div>
     </div>

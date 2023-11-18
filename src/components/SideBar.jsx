@@ -46,7 +46,7 @@ const SideBar = () => {
   ];
 
   return (
-    <div className="w-60 bg-[#212121] overflow-auto pb-8 h-screen">
+    <div className="w-56 bg-[#212121] overflow-auto pb-8 h-screen">
       <ul className="flex flex-col text-white pb-2 border-b-2 border-gray-700">
         {mainLinks.map(({ icon, name }) => (
           <li key={name} className="pl-6 py-2 hover:bg-zinc-700 rounded-xl">

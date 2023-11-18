@@ -8,8 +8,7 @@ export const getSearchPageVideos = createAsyncThunk(
   "youtube/App/searchPageVideo",
   async (isNext, { getState }) => {
     const {
-      youtubeApp: { nextPageToken: nextPageTokenFromState },
-      videos,
+      youtubeApp: { nextPageToken: nextPageTokenFromState, videos },
       searchTerm,
     } = getState();
 
