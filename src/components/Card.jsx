@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Card = ({ data }) => {
   return (
@@ -7,11 +8,13 @@ const Card = ({ data }) => {
         <span className="absolute bottom-28 right-3 text-xs text-white bg-gray-900 px-1 rounded-md">
           {data.videoDuration}
         </span>
-        <img
-          src={data.videoThumbnail}
-          alt="Thumbnail"
-          className="h-44 w-auto rounded-lg"
-        />
+        <Link to={`/watch/${data.videoId}`}>
+          <img
+            src={data.videoThumbnail}
+            alt="Thumbnail"
+            className="h-44 w-auto rounded-lg"
+          />
+        </Link>
         <div className="flex gap-3">
           <div className="min-w-fit py-3">
             <a href="#">

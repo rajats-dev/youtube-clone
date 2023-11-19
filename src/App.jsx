@@ -6,6 +6,7 @@ import {
   Route,
 } from "react-router-dom/cjs/react-router-dom.min";
 import Search from "./pages/Search";
+import Watch from "./pages/Watch";
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
       </Route>
       <Route path="/search">
         <Search />
+      </Route>
+      <Route path="/watch/:id">
+        <Watch />
       </Route>
     </>
   );
