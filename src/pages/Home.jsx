@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import NavBar from "../components/Navbar";
 import SideBar from "../components/SideBar";
 import Card from "../components/Card";
 import { useAppDispatch, useAppSelector } from "../hooks/useApp";
 import { getHomePageVideo } from "../store/reducers/getHomePageVideo";
 import Spinner from "../components/Spinner";
 import InfiniteScroll from "react-infinite-scroll-component";
+import NavBar from "../components/Navbar";
 
 const Home = () => {
   const dispatch = useAppDispatch();
