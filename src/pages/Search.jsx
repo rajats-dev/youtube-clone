@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import NavBar from "../components/Navbar";
+import NavBar from "../components/NavBar";
 import SideBar from "../components/SideBar";
 import SearchCard from "../components/SearchCard";
 import { useAppDispatch, useAppSelector } from "../hooks/useApp";
