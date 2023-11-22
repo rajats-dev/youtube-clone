@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from "../hooks/useApp";
 import { getHomePageVideo } from "../store/reducers/getHomePageVideo";
 import Spinner from "../components/Spinner";
 import InfiniteScroll from "react-infinite-scroll-component";
-import NavBar from "../components/Navbar";
+import NavBar from "../components/NavBar";
 
 const Home = () => {
   const dispatch = useAppDispatch();
