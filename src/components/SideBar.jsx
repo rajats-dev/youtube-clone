@@ -9,12 +9,13 @@ import {
 } from "react-icons/md";
 
 import { LuThumbsUp } from "react-icons/lu";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const SideBar = () => {
   let mainLinks = [
     {
       icon: <MdHomeFilled />,
-      name: "Home",
+      name: <Link to={"/"}>Home</Link>,
     },
     {
       icon: <MdAppShortcut />,
@@ -50,10 +51,10 @@ const SideBar = () => {
       <ul className="flex flex-col text-white pb-2 border-b-2 border-gray-700">
         {mainLinks.map(({ icon, name }) => (
           <li key={name} className="pl-6 py-2 hover:bg-zinc-700 rounded-xl">
-            <a href="#" className="flex gap-5 items-center">
+            <div className="flex gap-5 items-center">
               {icon}
               <span className="text-sm tracking-tight">{name}</span>
-            </a>
+            </div>
           </li>
         ))}
       </ul>

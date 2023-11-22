@@ -17,7 +17,7 @@ const Home = () => {
 
   return (
     <div className="max-h-screen overflow-hidden">
-      <div style={{ height: "7.5vh" }}>
+      <div>
         <NavBar />
       </div>
       <div className="flex">

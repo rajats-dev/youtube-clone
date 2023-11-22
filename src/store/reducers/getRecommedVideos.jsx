@@ -18,7 +18,7 @@ export const getRecommendVideos = createAsyncThunk(
     } = getState();
 
     const {
-      data: { items, nextPageToken },
+      data: { items },
     } = await axios.get(
       `https://youtube.googleapis.com/youtube/v3/search?maxResults=20&q=${nameId}&key=${API_KEY}&part=snippet&type=video&${
         isNext ? `pageToken=${nextPageTokenFromState}` : ""

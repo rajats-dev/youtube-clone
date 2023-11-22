@@ -5,14 +5,14 @@ const RecommendVideoCard = ({ data }) => {
   return (
     <div className="flex gap-3">
       <div className="relative">
-        <span className="absolute bottom-12 right-2 text-xs bg-gray-900 px-2 py-0.5 z-10">
+        <span className="absolute bottom-24 right-1 text-xs bg-gray-900 px-2 py-0.5 z-10">
           {data.videoDuration}
         </span>
         <Link to={`/watch/${data.videoId}`}>
           <img
             src={data.videoThumbnail}
             alt="Thumbnail"
-            className="h-20 w-72 rounded-lg"
+            className=" rounded-lg"
           />
         </Link>
       </div>

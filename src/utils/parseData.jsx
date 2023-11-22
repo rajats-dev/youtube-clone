@@ -6,7 +6,7 @@ import timeSince from "./timeSince";
 const API_KEY = import.meta.env.VITE_YOUTUBE_DATA_API_KEY;
 
 const parseData = async (items) => {
-  console.log(items);
+  // console.log(items);
 
   try {
     const videoIds = [];
@@ -20,7 +20,6 @@ const parseData = async (items) => {
     // console.log(videoIds);
     // console.log(channelIds);
 
-    console.log(channelIds.join(","));
     const {
       data: { items: channelsData },
     } = await axios.get(

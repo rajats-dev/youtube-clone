@@ -5,7 +5,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { BiSolidMicrophone } from "react-icons/bi";
 import { BiVideoPlus } from "react-icons/bi";
 import { BsBell } from "react-icons/bs";
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { useAppDispatch, useAppSelector } from "../hooks/useApp";
 import { youtubeAction } from "../features/youtube/youtubeSlice";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
@@ -34,7 +34,9 @@ const NavBar = () => {
           <GiHamburgerMenu />
         </div>
         <div className="flex gap-2 items-center justify-center">
-          <img src={youtubes} className="w-24" />
+          <Link to={"/"}>
+            <img src={youtubes} className="w-24" />
+          </Link>
           {/* <BsYoutube className="text-2xl text-red-500" /> */}
           {/* <span className="text-xl font-sans tracking-tighter">YouTube</span> */}
         </div>

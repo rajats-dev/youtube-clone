@@ -6,14 +6,11 @@ import { useAppDispatch, useAppSelector } from "../hooks/useApp";
 import { getSearchPageVideos } from "../store/reducers/getSearchPageVideos";
 import Spinner from "../components/Spinner";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { youtubeAction } from "../features/youtube/youtubeSlice";
 
 const Search = () => {
-  //   const history = useHistory();
   const dispatch = useAppDispatch();
   const video = useAppSelector((state) => state.youtubeApp.videos);
-  //   const searchTerm = useAppSelector((state) => state.youtubeApp.searchTerm);
 
   useEffect(() => {
     dispatch(youtubeAction.clearVideos());
@@ -38,7 +35,7 @@ const Search = () => {
             >
               {video.map((item) => {
                 return (
-                  <div className="my-5 pl-4">
+                  <div className="my-5 pl-3">
                     <SearchCard data={item} key={item.videoId} />
                   </div>
                 );

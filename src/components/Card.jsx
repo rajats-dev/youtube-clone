@@ -5,7 +5,7 @@ const Card = ({ data }) => {
   return (
     <div className="w-72 h-60 flex gap-4 flex-col">
       <div className="relative">
-        <span className="absolute bottom-28 right-3 text-xs text-white bg-gray-900 px-1 rounded-md">
+        <span className="absolute bottom-24 right-3 text-xs text-white bg-gray-900 px-1 rounded-md">
           {data.videoDuration}
         </span>
         <Link to={`/watch/${data.videoId}`}>
