@@ -15,7 +15,6 @@ export const getVideoDetails = createAsyncThunk(
     );
 
     const parsedData = parseWatchVideoData(items[0]);
-    console.log(parsedData);
     return parsedData;
   }
 );

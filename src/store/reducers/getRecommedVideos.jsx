@@ -1,29 +1,32 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import parseRecommendData from "../../utils/parseRecommedData";
+import parseData from "../../utils/parseData";
 
 const API_KEY = import.meta.env.VITE_YOUTUBE_DATA_API_KEY;
 
 export const getRecommendVideos = createAsyncThunk(
-  "youtube/App/getRecommendedVideo",
-  async (videoId, { getState }) => {
+  "youtube/App/getRecommendVideo",
+  async (isNext, { getState }) => {
     const {
       youtubeApp: {
-        currenPlaying: {
-          channelInfo: { id: channelId },
+        nextPageToken: nextPageTokenFromState,
+        recommendedVideo,
+        currentPlaying: {
+          channelInfo: { name: nameId },
         },
       },
     } = getState();
 
     const {
-      data: { items },
+      data: { items, nextPageToken },
     } = await axios.get(
-      `https://youtube.googleapis.com/youtube/v3/activities?&key=${API_KEY}&channelId=${channelId}&part=snippet,contentDetails&maxResults=20&type=videoId=${videoId}`
+      `https://youtube.googleapis.com/youtube/v3/search?maxResults=20&q=${nameId}&key=${API_KEY}&part=snippet&type=video&${
+        isNext ? `pageToken=${nextPageTokenFromState}` : ""
+      } `
     );
 
-    console.log(items);
-    const parsedData = await parseRecommendData(items, videoId);
+    const parsedData = await parseData(items);
 
-    return { parsedData };
+    return { parsedData: [...recommendedVideo, ...parsedData] };
   }
 );

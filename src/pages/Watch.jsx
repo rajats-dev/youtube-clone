@@ -3,8 +3,10 @@ import { useHistory, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../hooks/useApp";
 import { getVideoDetails } from "../store/reducers/getVideoDetails";
 import Navbar from "../components/Navbar";
-import { getRecommendVideos } from "../store/reducers/getRecommedVideos";
 import SearchCard from "../components/SearchCard";
+import { getRecommendVideos } from "../store/reducers/getRecommedVideos";
+import RecommedVideos from "./RecommedVideos";
+import { youtubeAction } from "../features/youtube/youtubeSlice";
 
 export default function Watch() {
   const { id } = useParams();
@@ -15,12 +17,6 @@ export default function Watch() {
     (state) => state.youtubeApp.currentPlaying
   );
 
-  const recommendedVideo = useAppSelector(
-    (state) => state.youtubeApp.recommendedVideo
-  );
-
-  console.log(recommendedVideo);
-
   useEffect(() => {
     if (id) {
       dispatch(getVideoDetails(id));
@@ -30,7 +26,10 @@ export default function Watch() {
   }, [id, history, dispatch]);
 
   useEffect(() => {
-    if (currentPlaying && id) dispatch(getRecommendVideos(id));
+    if (currentPlaying && id) {
+      dispatch(youtubeAction.clearVideos());
+      dispatch(getRecommendVideos(false));
+    }
   }, [currentPlaying, dispatch, id]);
 
   return (
@@ -41,10 +40,9 @@ export default function Watch() {
             <Navbar />
           </div>
           <div className="flex">
-            <div className="px-10 py-7 rounded-full">
+            <div className="px-10 pr-5 py-7 rounded-full">
               <iframe
                 src={`https://www.youtube.com/embed/${id}?autoplay=1`}
-                frameBorder="0"
                 width="900"
                 height="450"
                 allowFullScreen
@@ -69,7 +67,9 @@ export default function Watch() {
                 </button>
               </div>
             </div>
-            <div>{/* <SearchCard data={recommendedVideo} /> */}</div>
+            <div className="mt-5">
+              <RecommedVideos />
+            </div>
           </div>
         </div>
       )}

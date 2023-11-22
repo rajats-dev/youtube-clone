@@ -10,6 +10,7 @@ import { useAppDispatch, useAppSelector } from "../hooks/useApp";
 import { youtubeAction } from "../features/youtube/youtubeSlice";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import { getSearchPageVideos } from "../store/reducers/getSearchPageVideos";
+import youtubes from "../assets/youtubes.png";
 
 const NavBar = () => {
   const location = useLocation();
@@ -27,14 +28,15 @@ const NavBar = () => {
   };
 
   return (
-    <div className="flex justify-between px-14 h-12 items-center bg-[#212121] sticky">
+    <div className="flex justify-between px-14 h-12 items-center bg-[#000000] sticky">
       <div className="flex gap-3 items-center  text-xl text-white">
         <div>
           <GiHamburgerMenu />
         </div>
         <div className="flex gap-2 items-center justify-center">
-          <BsYoutube className="text-2xl text-red-500" />
-          <span className="text-xl font-sans tracking-tighter">YouTube</span>
+          <img src={youtubes} className="w-24" />
+          {/* <BsYoutube className="text-2xl text-red-500" /> */}
+          {/* <span className="text-xl font-sans tracking-tighter">YouTube</span> */}
         </div>
       </div>
       <div className="flex gap-3">

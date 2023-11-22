@@ -19,6 +19,7 @@ export const youtubeSlice = createSlice({
   reducers: {
     clearVideos(state) {
       state.videos = [];
+      state.recommendedVideo = [];
       state.nextPageToken = null;
     },
     changeSearchTerm(state, action) {

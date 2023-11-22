@@ -15,13 +15,12 @@ const Home = () => {
     dispatch(getHomePageVideo(false));
   }, [dispatch]);
 
-  console.log(videos);
   return (
     <div className="max-h-screen overflow-hidden">
       <div style={{ height: "7.5vh" }}>
         <NavBar />
       </div>
-      <div className="flex" style={{ height: "92.5vh" }}>
+      <div className="flex">
         <SideBar />
         {videos.length ? (
           <InfiniteScroll
@@ -31,7 +30,7 @@ const Home = () => {
             loader={<Spinner />}
             height={650}
           >
-            <div className="grid gap-y-14 gap-x-14 grid-cols-3 pt-8 pl-6">
+            <div className="grid gap-y-10 gap-x-2 grid-cols-3 pt-8 pl-6">
               {videos.map((item) => {
                 return <Card data={item} key={item.videoId} />;
               })}

@@ -12,7 +12,7 @@ const Card = ({ data }) => {
           <img
             src={data.videoThumbnail}
             alt="Thumbnail"
-            className="h-44 w-auto rounded-lg"
+            className="h-40 w-auto rounded-lg"
           />
         </Link>
         <div className="flex gap-3">
@@ -27,11 +27,11 @@ const Card = ({ data }) => {
           </div>
           <div>
             <h3>
-              <a href="#" className="line-clamp-none pt-2">
-                {data.videoTitle}
+              <a href="#" className="line-clamp-none pt-2 text-sm">
+                {data.videoTitle.slice(0, 51)}...
               </a>
             </h3>
-            <div className="text-sm text-gray-600">
+            <div className="text-xs text-gray-400">
               <div>
                 <a href="#" className="hover:text-white">
                   {data.channelInfo.name}

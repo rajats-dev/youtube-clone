@@ -6,7 +6,7 @@ import timeSince from "./timeSince";
 const API_KEY = import.meta.env.VITE_YOUTUBE_DATA_API_KEY;
 
 const parseData = async (items) => {
-  // console.log(items);
+  console.log(items);
 
   try {
     const videoIds = [];
@@ -17,7 +17,10 @@ const parseData = async (items) => {
       videoIds.push(item.id.videoId);
     });
 
-    // console.log(channelIds.join(","));
+    // console.log(videoIds);
+    // console.log(channelIds);
+
+    console.log(channelIds.join(","));
     const {
       data: { items: channelsData },
     } = await axios.get(
@@ -44,6 +47,8 @@ const parseData = async (items) => {
     https://youtube.googleapis.com/youtube/v3/videos?part=contentDetails,statistics&id=${videoIds.join(
       ","
     )}&key=${API_KEY}`);
+
+    // console.log(videosData);
 
     const parseData = [];
     items.forEach((item, index) => {
