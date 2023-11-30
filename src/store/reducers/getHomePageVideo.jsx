@@ -14,7 +14,7 @@ export const getHomePageVideo = createAsyncThunk(
     const {
       data: { items },
     } = await axios.get(
-      `https://youtube.googleapis.com/youtube/v3/search?maxResults=20&q="drop x out"&key=${API_KEY}&part=snippet&type=video&${
+      `https://youtube.googleapis.com/youtube/v3/search?maxResults=20&q="Think Media"&key=${API_KEY}&part=snippet&type=video&${
         isNext ? `pageToken=${nextPageTokenFromState}` : ""
       } `
     );
